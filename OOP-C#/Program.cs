@@ -49,7 +49,7 @@
             age = a;
         }
 
-        public Person()
+        public Person() // default constructor
         {
             name = "Test";
             age = 15;
