@@ -1,10 +1,25 @@
 ﻿namespace OOP_C_
 {
-    internal class Program
+
+    public class Student
+    {
+        public string name;
+        public readonly int age;
+
+
+        public Student(int age)
+        {
+            this.age = age;
+        }
+    }
+    public class Myclass
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+
+            Student p1 = new Student(29);
+
+            Console.WriteLine($"Age= {p1.age}");
         }
     }
 }
