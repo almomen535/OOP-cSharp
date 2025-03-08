@@ -1,14 +1,29 @@
-﻿namespace OOP_C_
+﻿using System.Security.Cryptography;
+
+namespace OOP_C_
 {
     class Person
     {
 
-        public string name;
+        private string name;
         private int age;
 
 
 
-        public void SetName(string n)
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public int Age
+        {
+            get { return age; }
+            set { age = value; }
+        }
+
+       /* public void SetName(string n)
         {
             name = n;
         }
@@ -25,13 +40,13 @@
         public int GetAge()
         {
             return age;
-        }
+        }*/
 
         // Method-> DisplayInfo
-        public void DisplayInfo()
+        /*public void DisplayInfo()
         {
-            Console.WriteLine($"Name: {GetName()} and Age: {GetAge()}\n");
-        }
+            Console.WriteLine($"Name: {p1.Age} and Age: {GetAge()}\n");
+        }*/
 
 
     }
@@ -43,11 +58,10 @@
 
             //Object-> p1
             Person p1 = new Person();
-            p1.name = "Momen";
-            p1.SetName("Al Momen");
-            p1.SetAge(33);
-            p1.DisplayInfo();
-
+            p1.Name = "Momen";
+            p1.Age=27;
+            //p1.DisplayInfo();
+            Console.WriteLine($"Name={p1.Name} and Age= {p1.Age}");
 
         }
     }
