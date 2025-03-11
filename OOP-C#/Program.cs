@@ -29,6 +29,7 @@ namespace OOP_C_
             p1.GetDetails();
 
 
+
         }
     }
 }
