@@ -41,6 +41,12 @@ namespace OOP_C_
                 p1.email = "jkrowling@example.com";
                 p1.nationality = "British";
                 Console.WriteLine(p1.GetDetails());
+
+                Book p2 = new Book();
+                p2.title = "Harry Potter";
+                p2.ISBN = "123-4567890123";
+                p2.price = 19.99;
+                Console.WriteLine(p2.GetBookInfo());
             }
         }
     }
