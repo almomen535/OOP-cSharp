@@ -6,30 +6,42 @@ namespace OOP_C_
 
     class Author
     {
-       public string name;
-       public string email;
-       public string nationality;
+        public string name;
+        public string email;
+        public string nationality;
 
-        public void GetDetails()
+        public string GetDetails()
         {
-            Console.WriteLine($"Author: {name}");
-            Console.WriteLine($"Email: {email}");
-            Console.WriteLine($"Nationality: {nationality}");
+
+            return $" Author:{name}\n Email:{email}\n Nationality: {nationality}";
+
+
         }
     }
-    internal class Program
+
+    class Book
     {
-        static void Main(string[] args)
+        public string title;
+        public string ISBN;
+        public double price;
+
+        public string GetBookInfo()
         {
-
-            Author p1 = new Author();
-            p1.name= "J.K. Rowling";
-            p1.email = "jkrowling@example.com";
-            p1.nationality = "British";
-            p1.GetDetails();
+            return $" Book Title: {title}\n ISBN:{ISBN}\n Price: {price}";
+        }
 
 
+        internal class Program
+        {
+            static void Main(string[] args)
+            {
 
+                Author p1 = new Author();
+                p1.name = "J.K. Rowling";
+                p1.email = "jkrowling@example.com";
+                p1.nationality = "British";
+                Console.WriteLine(p1.GetDetails());
+            }
         }
     }
 }
