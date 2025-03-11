@@ -1,5 +1,7 @@
-﻿namespace OOP_C_
+﻿using System;
+namespace OOP_C_
 {
+    
 
     public class Student
     {
@@ -19,7 +21,11 @@
 
             Student p1 = new Student(29);
 
-            Console.WriteLine($"Age= {p1.age}");
+           class MyClass
+        {
+            Console.wr
+        }
+          
         }
     }
-}
+
