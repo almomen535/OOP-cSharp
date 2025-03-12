@@ -1,18 +1,22 @@
 ﻿using System;
+using System.Threading.Channels;
 namespace OOP_C_
 {
 
 
     public class Student
     {
-        public string name;
-        public readonly int age;
-
-
-        public Student(int age)
+        private string name;
+        private string rollNumber;
+        private DateTime dateOfBirth;
+         
+        public Student(string name, string rollNumber, DateTime dateOfBirth)
         {
-            this.age = age;
+            this.name = name;
+            this.rollNumber = rollNumber;
+            this.dateOfBirth = dateOfBirth;
         }
+        
     }
     public class Myclass
     {
