@@ -1,7 +1,7 @@
 ﻿using System;
 namespace OOP_C_
 {
-    
+
 
     public class Student
     {
@@ -18,7 +18,7 @@ namespace OOP_C_
     {
         static void Main(string[] args)
         {
-          
+            Console.WriteLine("Hello");
         }
     }
-
+}
