@@ -18,13 +18,6 @@ namespace OOP_C_
     {
         static void Main(string[] args)
         {
-
-            Student p1 = new Student(29);
-
-           class MyClass
-        {
-            Console.wr
-        }
           
         }
     }
