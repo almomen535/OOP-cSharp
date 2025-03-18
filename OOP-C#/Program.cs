@@ -41,11 +41,33 @@ namespace OOP_C_
        
         public override void GetDetails()
         {
+            Console.WriteLine($"Students Informaton:\n");
             Console.WriteLine($"Name: {Name}\nAge: {Age}\nRoll: {RollNumber}\nDepartment: {Department}\nCGPA: {CGPA}");
         }
 
     }
 
+
+    class Teacher : Person
+    {
+        public string Subject { get; set; }
+        public string Salary { get; set; }
+
+
+        public Teacher(string name, string age,int id,string subject, string salary) : base(name, age, id)  // Calling Person COnstructor
+        {
+            Subject = subject;
+            Salary = salary;
+        }
+
+        public override void GetDetails()
+        {
+            {
+                Console.WriteLine($"Teachers Informaton:\n");
+                Console.WriteLine($"Name: {Name}\nAge: {Age}\nSubject: {Subject}\nSalary: {Salary}");
+            }
+        }
+    }
 
     public class Myclass
     {
@@ -54,6 +76,11 @@ namespace OOP_C_
 
             Student student1 = new Student("Al Momen","24",1234,"CS210","CSE",3.50);
             student1.GetDetails();
+
+            Console.WriteLine(" ");
+
+            Teacher teacher1 = new Teacher("Tanvir Islam", "29", 74933, "Networking","40,000 $");
+            teacher1.GetDetails();
         }
     }
 }
