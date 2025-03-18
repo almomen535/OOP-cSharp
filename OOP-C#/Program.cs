@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Channels;
+using System.Collections.Generic;
 namespace OOP_C_
 {
 
@@ -9,16 +10,9 @@ namespace OOP_C_
         public string Name { get; set; }
         public string Age { get; set; }
         public int ID { get; set; }
+     
 
-
-        public Person(string name, string age, int id)
-        {
-            Name = name;
-            Age = age;
-            ID = id;
-        }
-
-        public abstract void GetDetails();
+        public abstract string GetDetails();
         
     }
 
@@ -31,18 +25,21 @@ namespace OOP_C_
 
 
         public Student(string name, string age,int id,string rollNumber, string department, double cGPA)
-               : base(name,age,id)     // Student Constructor calling Person Constructor
+
         {
+            Name = name;
             RollNumber = rollNumber;
+            Age = age;
+            ID = id;
             Department = department;
             CGPA = cGPA;
         }
 
        
-        public override void GetDetails()
+        public override string GetDetails()
         {
-            Console.WriteLine($"Students Informaton:\n");
-            Console.WriteLine($"Name: {Name}\nAge: {Age}\nRoll: {RollNumber}\nDepartment: {Department}\nCGPA: {CGPA}");
+            
+            return($"Student: {Name}, Age: {Age}, Roll: {RollNumber}, Department: {Department}, CGPA: {CGPA}");
         }
 
     }
@@ -54,33 +51,90 @@ namespace OOP_C_
         public string Salary { get; set; }
 
 
-        public Teacher(string name, string age,int id,string subject, string salary) : base(name, age, id)  // Calling Person COnstructor
+        public Teacher(string name, string age,int id,string subject, string salary) 
         {
+            Name = name;
+            Age = age;
+            ID = id;
             Subject = subject;
             Salary = salary;
         }
 
-        public override void GetDetails()
+        public override string GetDetails()
         {
             {
-                Console.WriteLine($"Teachers Informaton:\n");
-                Console.WriteLine($"Name: {Name}\nAge: {Age}\nSubject: {Subject}\nSalary: {Salary}");
+               
+                return($"Teacher: {Name}, Age: {Age}, Subject: {Subject}, Salary: {Salary}");
             }
         }
+    }
+
+
+
+    // Management System Class
+   
+    class ManagementSystem
+    {
+        private List<Student> students = new List<Student>();
+        private List<Teacher> teachers = new List<Teacher>();
+
+        public void AddStudent(Student s)
+        {
+            students.Add(s);
+        }
+
+        public void AddTeacher(Teacher t)
+        {
+            teachers.Add(t);
+        }
+
+
+
+        public void DisplayStudents()
+        {
+            Console.WriteLine("Students List: ");
+
+            foreach(var i in students)
+            {
+                Console.WriteLine(i.GetDetails());
+            }
+        }
+
+
+        public void DisplayTeachers()
+        {
+            Console.WriteLine("Teachers List: ");
+
+            foreach( var i in teachers)
+            {
+                Console.WriteLine(i.GetDetails());
+            }
+        }
+
     }
 
     public class Myclass
     {
         static void Main(string[] args)
-        {   
+        {
+
+
+            ManagementSystem ms = new ManagementSystem();
+
 
             Student student1 = new Student("Al Momen","24",1234,"CS210","CSE",3.50);
-            student1.GetDetails();
+            Student student2 = new Student("Sakib", "20", 1211, "CS220", "EEE", 3.00);
+            ms.AddStudent(student1);
+            ms.AddStudent(student2);
+            ms.DisplayStudents();
 
             Console.WriteLine(" ");
 
-            Teacher teacher1 = new Teacher("Tanvir Islam", "29", 74933, "Networking","40,000 $");
-            teacher1.GetDetails();
+            Teacher teacher1 = new Teacher("Tanvir Islam", "29", 74933, "Networking","40,000 Taka ");
+            Teacher teacher2 = new Teacher("Sayeduzzaman ", "36", 12008, "DSA", "60,000 Taka");
+            ms.AddTeacher(teacher1);
+            ms.AddTeacher(teacher2);
+            ms.DisplayTeachers();
         }
     }
 }
