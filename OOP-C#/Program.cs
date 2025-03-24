@@ -27,28 +27,90 @@
 
         public override string DisplayInfo()
         {
-            return ($"Team Name: {TeamName}, Owner: {Owner}, Captain: {Captain}");
+            return ($"Football Team Name: {TeamName}, Owner: {Owner}, Captain: {Captain}");
         }
 
 
     }
 
-    
-    public class Management
+
+    class Cricket : Sports
     {
+        public string Owner { get; set; }
+        public string Captain { get; set; }
+
+
+        public Cricket(string name, string owner, string captain)
+        {
+
+            TeamName = name;
+
+            Owner = owner;
+            Captain = captain;
+        }
+
+        public override string DisplayInfo()
+        {
+            return ($"Cricket Team Name: {TeamName}, Owner: {Owner}, Captain: {Captain}");
+        }
+
+
+    }
+
+
+
+     class Management
+    {
+        private List<Sports> teams = new List<Sports>();
+        
+
+        public void AddTeam(Sports Team)
+        {
+           teams.Add(Team);
+        }
+
+        
+
+        public void GetTeamDetails()
+        {
+            Console.WriteLine("Team List for Football: ");
+
+            foreach(var i in teams)
+            {
+                Console.WriteLine(i.DisplayInfo());
+            }
+        }
+
+      
        
     }
     
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
 
+            Management m = new Management();
+
             Football team1 = new Football("FC Hexclan", "Sayeduzzaman Islam","Al Momen");
             Football team2 = new Football("Thread Titans", "Tanvir Islam", "Asif Mahmud");
+            m.AddTeam(team1);
+            m.AddTeam(team2);
+           
+
+            Console.WriteLine(" ");
+
+            Cricket team3 = new Cricket("Binary Brain", "Umme Sarah", "Feroj Miah");
+            Cricket team4 = new Cricket("Error 404", "Sadia Sazzad Kotha", "Samiul Islam");
+            m.AddTeam(team3);
+            m.AddTeam(team4);
 
 
-            Console.WriteLine(team1.DisplayInfo());
+
+            m.GetTeamDetails();
+
+
+
         }
     }
 }
