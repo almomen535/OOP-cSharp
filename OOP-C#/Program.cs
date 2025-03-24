@@ -5,10 +5,25 @@
     abstract class Team
     {
         public string Name { get; set; }
+        public string ID { get; set; }
 
-        abstract string GetDetalis();
+        public abstract string GetDetalis();
       
     }
+
+    public class Hexclan
+    {
+        public string Owner { get; set; }
+        public string Captain { get; set; }
+
+
+
+    }
+
+
+
+
+
 
     internal class Program
     {
