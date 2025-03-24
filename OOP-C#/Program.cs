@@ -73,7 +73,7 @@
 
         public void GetTeamDetails()
         {
-            Console.WriteLine("Team List for Football: ");
+            Console.WriteLine("Team List for  Sports: ");
 
             foreach(var i in teams)
             {
