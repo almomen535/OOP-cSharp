@@ -1,116 +1,63 @@
-﻿namespace OOP_C_
+﻿
+using System.Globalization;
+using System.Threading.Tasks.Dataflow;
+
+namespace OOP_C_
 {
 
 
-    abstract class Sports
+    class Author
     {
-        public string TeamName { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Nationality { get; set; }
 
-        public abstract string DisplayInfo();
 
+        public Author(string name, string email, string nationality)
+        {
+            Name = name;
+            Email = email;
+            Nationality = nationality;
+        }
+
+        public string GetDetails()
+        {
+
+            return $" Author:{Name}\n Email:{Email}\n Nationality: {Nationality}";
+
+        }
     }
 
-   class Football : Sports
+    class Book
     {
-        public string Owner { get; set; }
-        public string Captain { get; set; }
+        public string Title { get; set; }
+        public string ISBN {  get; set; }
+        public double Price { get; set; }
+        public Author BookAuthor { get; set; } //BookAuthor is a reference variable. It holds a reference (or pointer) to an object of the Author class.
+        public List<string> Genres { get; set; }
 
 
-        public Football(string name, string owner, string captain)
+        public Book(string title, string isbn, double price, Author bookauthor, List<string> genres)
         {
-
-            TeamName = name;
-          
-            Owner = owner;
-            Captain = captain;
+            Title = title;
+            ISBN = isbn;
+            Price = price;
+            BookAuthor = bookauthor;       // Linked  
+            Genres = genres;
+           
         }
 
-        public override string DisplayInfo()
+        public string GetBookInfo()
         {
-            return ($"Football Team Name: {TeamName}, Owner: {Owner}, Captain: {Captain}");
+            return $" Book Title: {Title}\n ISBN:{ISBN}\n Price: ${Price}\n Genres:{string.Join(",",Genres)}\n{BookAuthor.GetDetails()}\n";
         }
-
 
     }
-
-
-    class Cricket : Sports
-    {
-        public string Owner { get; set; }
-        public string Captain { get; set; }
-
-
-        public Cricket(string name, string owner, string captain)
-        {
-
-            TeamName = name;
-
-            Owner = owner;
-            Captain = captain;
-        }
-
-        public override string DisplayInfo()
-        {
-            return ($"Cricket Team Name: {TeamName}, Owner: {Owner}, Captain: {Captain}");
-        }
-
-
-    }
-
-
-
-     class Management
-    {
-        private List<Sports> teams = new List<Sports>();
-        
-
-        public void AddTeam(Sports Team)
-        {
-           teams.Add(Team);
-        }
-
-        
-
-        public void GetTeamDetails()
-        {
-            Console.WriteLine("Team List for  Sports: ");
-
-            foreach(var i in teams)
-            {
-                Console.WriteLine(i.DisplayInfo());
-            }
-        }
-
-      
-       
-    }
-    
-    public class Program
+    public class Myclass
     {
         static void Main(string[] args)
         {
-
-            Management m = new Management();
-
-            Football team1 = new Football("FC Hexclan", "Sayeduzzaman Islam","Al Momen");
-            Football team2 = new Football("Thread Titans", "Tanvir Islam", "Asif Mahmud");
-            m.AddTeam(team1);
-            m.AddTeam(team2);
-           
-
-            Console.WriteLine(" ");
-
-            Cricket team3 = new Cricket("Binary Brain", "Umme Sarah", "Feroj Miah");
-            Cricket team4 = new Cricket("Error 404", "Sadia Sazzad Kotha", "Samiul Islam");
-            m.AddTeam(team3);
-            m.AddTeam(team4);
-
-
-
-            m.GetTeamDetails();
-
-
-
+          
         }
     }
-}
+
